@@ -17,4 +17,10 @@
 			"bucket_name": "viewco-cms-media",
 		},
 	],
+	"kv_namespaces": [
+		{
+			"binding": "SESSION",
+			"id": "93cde4898a85447185b5558a6e8ed80a",
+		},
+	],
 }
