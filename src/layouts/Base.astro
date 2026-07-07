@@ -1,5 +1,5 @@
 ---
-import { getMenu, getSiteSettings } from "emdash";
+import { getMenu, getMenus, getSiteSettings } from "emdash";
 import {
 	WidgetArea,
 	EmDashHead,
@@ -9,6 +9,7 @@ import {
 import { createPublicPageContext } from "emdash/page";
 import LiveSearch from "emdash/ui/search";
 import { resolveStarterSiteIdentity } from "../utils/site-identity";
+import { detectLocale, SITE_TITLES, SITE_TAGLINES, LOGO_ALTS } from "../utils/i18n";
 
 interface Props {
 	title: string;
@@ -16,16 +17,31 @@ interface Props {
 	description?: string | null;
 	image?: string | null;
 	canonical?: string | null;
-	/** Pass content reference for plugin page contributions on content pages */
 	content?: { collection: string; id: string; slug?: string | null };
 }
 
 const { title, pageTitle, description, image, canonical, content } = Astro.props;
-const { siteTitle, siteTagline, siteLogo } = resolveStarterSiteIdentity(await getSiteSettings());
+
+// Detect locale from URL
+const locale = detectLocale(Astro.url.pathname);
+
+// Get site settings from emdash or fall back to locale-aware defaults
+const settings = resolveStarterSiteIdentity(await getSiteSettings());
+const siteTitle = SITE_TITLES[locale];
+const siteTagline = SITE_TAGLINES[locale];
+const siteLogo = settings.siteLogo;
+const logoAlt = LOGO_ALTS[locale];
+
 const fullTitle = title.includes(siteTitle) ? title : `${title} — ${siteTitle}`;
 const pageDescription = description ?? siteTagline;
 
-const menu = await getMenu("primary");
+// Get locale-aware menu, fall back to any available menu
+let menu = await getMenu("primary", { locale });
+if (!menu || !menu.items || menu.items.length === 0) {
+	const allMenus = await getMenus();
+	const fallback = allMenus.find(m => m.name === "primary" && m.items && m.items.length > 0);
+	menu = fallback || allMenus[0] || null;
+}
 
 const pageCtx = createPublicPageContext({
 	Astro,
@@ -42,7 +58,7 @@ const pageCtx = createPublicPageContext({
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={locale}>
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -56,9 +72,9 @@ const pageCtx = createPublicPageContext({
 
 		<header>
 			<nav>
-				<a href="/">
+				<a href={locale === "zh-Hant" ? "/" : `/${locale === "zh-Hans" ? "cn" : "en"}/`}>
 					{siteLogo
-						? <img src={siteLogo.url} alt={siteLogo.alt || siteTitle} style="height:48px;width:auto;margin:-8px 0;display:block;" />
+						? <img src={siteLogo.url} alt={logoAlt} style="height:48px;width:auto;margin:-8px 0;display:block;" />
 						: siteTitle
 					}
 				</a>
@@ -78,6 +94,7 @@ const pageCtx = createPublicPageContext({
 		</main>
 
 		<footer>
+			<p>&copy; 2026 {siteTitle} All Rights Reserved.</p>
 			<WidgetArea name="sidebar" />
 		</footer>
 

@@ -1,0 +1,40 @@
+---
+import { getEmDashCollection, getSiteSettings } from "emdash";
+import { Image } from "emdash/ui";
+import Base from "../../layouts/Base.astro";
+import { resolveStarterSiteIdentity } from "../../utils/site-identity";
+import { SITE_TITLES, SITE_TAGLINES, detectLocale } from "../../utils/i18n";
+
+const locale = detectLocale(Astro.url.pathname);
+const siteTitle = SITE_TITLES[locale];
+const siteTagline = SITE_TAGLINES[locale];
+const { entries: posts } = await getEmDashCollection("posts", {
+	orderBy: { published_at: "desc" },
+});
+---
+
+<Base title={siteTitle} description={siteTagline}>
+	<h1>Recent Posts</h1>
+	{
+		posts.length === 0 ? (
+			<p>
+				No posts yet.{" "}
+				<a href="/_emdash/admin/content/posts/new">Create one</a>.
+			</p>
+		) : (
+			<ul>
+				{posts.map((post) => (
+					<li>
+						<a href={`/cn/posts/${post.id}`}>
+							{post.data.featured_image && (
+								<Image image={post.data.featured_image} />
+							)}
+							<h2>{post.data.title}</h2>
+						</a>
+						{post.data.excerpt && <p>{post.data.excerpt}</p>}
+					</li>
+				))}
+			</ul>
+		)
+	}
+</Base>
