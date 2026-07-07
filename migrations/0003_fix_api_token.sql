@@ -1,0 +1,2 @@
+DELETE FROM _emdash_api_tokens WHERE name='CLI Access';
+INSERT INTO _emdash_api_tokens(id, name, token_hash, prefix, user_id, scopes, created_at) VALUES('952aaa16afa3614bcc7eb6d214', 'CLI Access', 'LDWqubjyp3WyrM71jRvsUr9JUvTVr62BqEE_5LQc4ec', 'ec_pat_Ai7Rl', '01KRW3G6JJGSPP0BXA17XPK5E1', '["admin"]', datetime('now'));
