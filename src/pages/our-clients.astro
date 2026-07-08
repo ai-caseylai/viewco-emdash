@@ -1,13 +1,11 @@
 ---
-import { getEmDashEntry, getSeoMeta, decodeSlug } from "emdash";
+import { getEmDashEntry, getSeoMeta } from "emdash";
 import { PortableText } from "emdash/ui";
-import Base from "../../layouts/Base.astro";
-import { detectLocale, SITE_TITLES } from "../../utils/i18n";
+import Base from "../layouts/Base.astro";
+import { detectLocale, SITE_TITLES } from "../utils/i18n";
 
 const locale = detectLocale(Astro.url.pathname);
-const slug = decodeSlug(Astro.params.slug);
-if (!slug) return Astro.redirect("/404");
-
+const slug = "our-clients";
 const { entry: page, cacheHint } = await getEmDashEntry("pages", slug, { locale });
 if (!page) return Astro.redirect("/404");
 if (Astro.cache?.enabled) Astro.cache.set(cacheHint);
@@ -19,5 +17,12 @@ const seo = getSeoMeta(page, { siteTitle, siteUrl: Astro.url.origin, path: `/${s
 <Base title={seo.title} pageTitle={seo.ogTitle} description={seo.description} canonical={seo.canonical} content={{ collection: "pages", id: page.data.id, slug }}>
   <section class="page-hero"><div class="container"><h1>{page.data.title}</h1></div></section>
   <section class="section"><div class="container"><div class="content-block"><PortableText value={page.data.content} /></div></div></section>
-
+  <div style="margin:2rem 100px">
+    <h2>Photo Gallery</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1rem">
+      <img src="/Viewco-website-HKSP-photo-wmremove.jpeg" style="width:100%;height:250px;object-fit:cover;border-radius:8px" loading="lazy" />
+      <img src="/Viewco-website-HKSP-photo-wmremove-1.jpeg" style="width:100%;height:250px;object-fit:cover;border-radius:8px" loading="lazy" />
+      <img src="/Viewco-website-bay-photo-wmremove.jpeg" style="width:100%;height:250px;object-fit:cover;border-radius:8px" loading="lazy" />
+    </div>
+  </div>
 </Base>

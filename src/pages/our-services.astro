@@ -1,0 +1,30 @@
+---
+import { getEmDashEntry, getSeoMeta } from "emdash";
+import { PortableText } from "emdash/ui";
+import Base from "../layouts/Base.astro";
+import { detectLocale, SITE_TITLES } from "../utils/i18n";
+
+const locale = detectLocale(Astro.url.pathname);
+const slug = "our-services";
+const { entry: page, cacheHint } = await getEmDashEntry("pages", slug, { locale });
+if (!page) return Astro.redirect("/404");
+if (Astro.cache?.enabled) Astro.cache.set(cacheHint);
+
+const siteTitle = SITE_TITLES[locale];
+const seo = getSeoMeta(page, { siteTitle, siteUrl: Astro.url.origin, path: `/${slug}` });
+---
+
+<Base title={seo.title} pageTitle={seo.ogTitle} description={seo.description} canonical={seo.canonical} content={{ collection: "pages", id: page.data.id, slug }}>
+  <section class="page-hero"><div class="container"><h1>{page.data.title}</h1></div></section>
+  <section class="section"><div class="container"><div class="content-block"><PortableText value={page.data.content} /></div></div></section>
+  <div style="margin:2rem 100px">
+    <h2>Photo Gallery</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1rem">
+      <img src="/Machine-1600x1200-1.jpg" style="width:100%;height:250px;object-fit:cover;border-radius:8px" loading="lazy" />
+      <img src="/panorama-3323163_1920.jpg" style="width:100%;height:250px;object-fit:cover;border-radius:8px" loading="lazy" />
+      <img src="/oak-600-800.jpg" style="width:100%;height:250px;object-fit:cover;border-radius:8px" loading="lazy" />
+      <img src="/IMG_1588-1290x725.jpg" style="width:100%;height:250px;object-fit:cover;border-radius:8px" loading="lazy" />
+      <img src="/IMG_1283-1290x725.jpg" style="width:100%;height:250px;object-fit:cover;border-radius:8px" loading="lazy" />
+    </div>
+  </div>
+</Base>
