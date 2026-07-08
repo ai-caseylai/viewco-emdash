@@ -1,36 +1,42 @@
 ---
-import { getEmDashEntry, getSeoMeta, decodeSlug, getSiteSettings } from "emdash";
+import { getEmDashEntry, getSeoMeta, decodeSlug } from "emdash";
 import { PortableText } from "emdash/ui";
 import Base from "../../layouts/Base.astro";
-import { resolveStarterSiteIdentity } from "../../utils/site-identity";
-import { SITE_TITLES, SITE_TAGLINES, detectLocale } from "../../utils/i18n";
+import { detectLocale, SITE_TITLES } from "../../utils/i18n";
 
 const locale = detectLocale(Astro.url.pathname);
-const siteTitle = SITE_TITLES[locale];
-
 const slug = decodeSlug(Astro.params.slug);
-if (!slug) return Astro.redirect("/cn/404");
+if (!slug) return Astro.redirect("/404");
 
 const { entry: page, cacheHint } = await getEmDashEntry("pages", slug);
-if (!page) return Astro.redirect("/cn/404");
+if (!page) return Astro.redirect("/404");
 if (Astro.cache?.enabled) Astro.cache.set(cacheHint);
 
+const siteTitle = SITE_TITLES[locale];
 const seo = getSeoMeta(page, {
-	siteTitle,
-	siteUrl: Astro.url.origin,
-	path: `/cn/${slug}`,
+  siteTitle,
+  siteUrl: Astro.url.origin,
+  path: `/${slug}`,
 });
 ---
 
 <Base
-	title={seo.title}
-	pageTitle={seo.ogTitle}
-	description={seo.description}
-	canonical={seo.canonical}
-	content={{ collection: "pages", id: page.data.id, slug }}
+  title={seo.title}
+  pageTitle={seo.ogTitle}
+  description={seo.description}
+  canonical={seo.canonical}
+  content={{ collection: "pages", id: page.data.id, slug }}
 >
-	<article>
-		<h1 {...page.edit.title}>{page.data.title}</h1>
-		<PortableText value={page.data.content} />
-	</article>
+  <section class="page-hero">
+    <div class="container">
+      <h1>{page.data.title}</h1>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container">
+      <div class="content-block">
+        <PortableText value={page.data.content} />
+      </div>
+    </div>
+  </section>
 </Base>
