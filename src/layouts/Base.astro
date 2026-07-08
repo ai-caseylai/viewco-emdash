@@ -56,10 +56,10 @@ const homeUrl = locale === "zh-Hant" ? "/" : `/${locale === "zh-Hans" ? "cn" : "
   <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png" />
   <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180x180.png" />
   <link rel="stylesheet" href="/viewco.css" />
-  <EmDashHead page={pageCtx} />
+  <!-- EmDashHead removed to avoid CSS conflict -->
 </head>
 <body>
-  <EmDashBodyStart page={pageCtx} />
+  
 
   <header class="header" id="header">
     <div class="header__inner container">
@@ -134,6 +134,6 @@ const homeUrl = locale === "zh-Hant" ? "/" : `/${locale === "zh-Hans" ? "cn" : "
     </div>
   </footer>
 
-  <EmDashBodyEnd page={pageCtx} />
+  
 </body>
 </html>
