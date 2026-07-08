@@ -9,7 +9,6 @@ const locale = detectLocale(Astro.url.pathname);
 const slug = decodeSlug(Astro.params.slug);
 if (!slug) return Astro.redirect("/404");
 
-const locale = detectLocale(Astro.url.pathname);
 const { entry: page, cacheHint } = await getEmDashEntry("pages", slug, { locale });
 if (!page) return Astro.redirect("/404");
 if (Astro.cache?.enabled) Astro.cache.set(cacheHint);
