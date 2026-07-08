@@ -66,10 +66,11 @@ const homeUrl = locale === "zh-Hant" ? "/" : `/${locale === "zh-Hans" ? "cn" : "
       <div class="header__left">
         <a href={homeUrl} class="header__logo">
           <img src="/logo-white.png" alt={logoAlt} width="183" height="49" />
+          <img src="/logo-inverse.png" alt={logoAlt} width="183" height="49" style="display:none" class="logo-inverse" />
         </a>
         <nav class="header__nav" id="mainNav">
           <ul>
-            <li><a href={homeUrl} class={Astro.url.pathname === homeUrl ? "active" : ""}>Home</a></li>
+            
             {menu?.items?.map(item => (
               <li><a href={item.url} class={Astro.url.pathname === item.url ? "active" : ""}>{item.label}</a></li>
             ))}
