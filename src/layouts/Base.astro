@@ -43,14 +43,95 @@ const homeUrl = prefix + "/";
   <link rel="stylesheet" href="/viewco.css" />
 </head>
 <body>
-<header class="header" id="header" data-astro-cid-3ef6ksr2> <div class="header__inner container" data-astro-cid-3ef6ksr2> <!-- Left: Logo + Nav --> <div class="header__left" data-astro-cid-3ef6ksr2> <a href="/" class="header__logo" data-astro-cid-3ef6ksr2> <img src="/logo-white.png" alt="偉保工程有限公司" width="183" height="49" data-astro-cid-3ef6ksr2> </a> <nav class="header__nav" id="mainNav" data-astro-cid-3ef6ksr2> <ul data-astro-cid-3ef6ksr2> <li data-astro-cid-3ef6ksr2><a href="/" class="active" data-astro-cid-3ef6ksr2>主頁</a></li> <li class="has-sub" data-astro-cid-3ef6ksr2> <a href="/about-us/" class data-astro-cid-3ef6ksr2>關於我們</a> <ul data-astro-cid-3ef6ksr2> <li data-astro-cid-3ef6ksr2><a href="/about-us/" data-astro-cid-3ef6ksr2>偉保工程的文化，願景，使命與核心價值</a></li> <li data-astro-cid-3ef6ksr2><a href="/about-us/" data-astro-cid-3ef6ksr2>里程碑</a></li> <li data-astro-cid-3ef6ksr2><a href="/about-us/" data-astro-cid-3ef6ksr2>管理團隊</a></li> <li data-astro-cid-3ef6ksr2><a href="/about-us/" data-astro-cid-3ef6ksr2>ESG x 偉保</a></li> </ul> </li> <li class="has-sub" data-astro-cid-3ef6ksr2> <a href="/our-services/" class data-astro-cid-3ef6ksr2>服務內容</a> <ul data-astro-cid-3ef6ksr2> <li data-astro-cid-3ef6ksr2><a href="/our-services/" data-astro-cid-3ef6ksr2>項目管理</a></li> <li data-astro-cid-3ef6ksr2><a href="/our-services/" data-astro-cid-3ef6ksr2>維修及保養</a></li> <li data-astro-cid-3ef6ksr2><a href="/our-services/" data-astro-cid-3ef6ksr2>室內裝修</a></li> </ul> </li> <li data-astro-cid-3ef6ksr2><a href="/our-clients/" class data-astro-cid-3ef6ksr2>客戶簡介</a></li> <li data-astro-cid-3ef6ksr2><a href="/join-us/" class data-astro-cid-3ef6ksr2>加入我們</a></li> <li data-astro-cid-3ef6ksr2><a href="/partners/" class data-astro-cid-3ef6ksr2>合作伙伴</a></li> <li data-astro-cid-3ef6ksr2><a href="/contacts/" class data-astro-cid-3ef6ksr2>聯絡我們</a></li> </ul> </nav> </div> <!-- Center: Search --> <div class="header__center" data-astro-cid-3ef6ksr2> <button class="header__search-btn" id="searchToggle" aria-label="Search" data-astro-cid-3ef6ksr2> <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" data-astro-cid-3ef6ksr2><circle cx="11" cy="11" r="8" data-astro-cid-3ef6ksr2></circle><line x1="21" y1="21" x2="16.65" y2="16.65" data-astro-cid-3ef6ksr2></line></svg> </button> </div> <!-- Right: Lang + Mobile Toggle --> <div class="header__right" data-astro-cid-3ef6ksr2> <div class="header__lang" data-astro-cid-3ef6ksr2> <button class="header__lang-btn" id="langToggle" aria-label="Language" data-astro-cid-3ef6ksr2>🌐</button> <ul class="header__lang-dropdown" id="langDropdown" data-astro-cid-3ef6ksr2> <li data-astro-cid-3ef6ksr2><a href="/" data-astro-cid-3ef6ksr2>繁體中文</a></li> <li data-astro-cid-3ef6ksr2><a href="/cn" data-astro-cid-3ef6ksr2>简体中文</a></li> <li data-astro-cid-3ef6ksr2><a href="/en" data-astro-cid-3ef6ksr2>English</a></li> </ul> </div> <button class="header__mobile-toggle" id="mobileToggle" aria-label="Menu" data-astro-cid-3ef6ksr2> <span data-astro-cid-3ef6ksr2></span><span data-astro-cid-3ef6ksr2></span><span data-astro-cid-3ef6ksr2></span> </button> </div> </div> <!-- Search overlay --> <div class="search-overlay" id="searchOverlay" data-astro-cid-3ef6ksr2> <div class="search-overlay__inner" data-astro-cid-3ef6ksr2> <img src="/logo-inverse.png" alt="偉保工程有限公司" width="183" height="49" class="search-overlay__logo" data-astro-cid-3ef6ksr2> <button class="search-overlay__close" id="searchClose" data-astro-cid-3ef6ksr2>&times;</button> <form class="search-overlay__form" action="/" method="GET" data-astro-cid-3ef6ksr2> <input type="text" name="s" class="search-overlay__input" placeholder="Type words and hit enter" data-astro-cid-3ef6ksr2> <button type="submit" class="search-overlay__submit" data-astro-cid-3ef6ksr2> <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" data-astro-cid-3ef6ksr2><circle cx="11" cy="11" r="8" data-astro-cid-3ef6ksr2></circle><line x1="21" y1="21" x2="16.65" y2="16.65" data-astro-cid-3ef6ksr2></line></svg> </button> </form> </div> <div class="search-overlay__bg" data-astro-cid-3ef6ksr2></div> </div> </header>
+  <header class="header" id="header" data-astro-cid-3ef6ksr2>
+    <div class="header__inner container" data-astro-cid-3ef6ksr2>
+      <div class="header__left" data-astro-cid-3ef6ksr2>
+        <a href={homeUrl} class="header__logo" data-astro-cid-3ef6ksr2>
+          <img src="/logo-white.png" alt={logoAlt} width="183" height="49" data-astro-cid-3ef6ksr2 />
+        </a>
+        <nav class="header__nav" id="mainNav" data-astro-cid-3ef6ksr2>
+          <ul data-astro-cid-3ef6ksr2>
+            {menu?.items?.map(item => (
+              <li data-astro-cid-3ef6ksr2>
+                <a href={item.url} data-astro-cid-3ef6ksr2 class={Astro.url.pathname === item.url ? "active" : ""}>
+                  {item.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      </div>
+      <div class="header__right" data-astro-cid-3ef6ksr2>
+        <div class="header__lang" data-astro-cid-3ef6ksr2>
+          <button class="header__lang-btn" id="langToggle" aria-label="Language" data-astro-cid-3ef6ksr2>🌐</button>
+          <ul class="header__lang-dropdown" id="langDropdown" data-astro-cid-3ef6ksr2>
+            <li data-astro-cid-3ef6ksr2><a href="/" data-astro-cid-3ef6ksr2>繁體中文</a></li>
+            <li data-astro-cid-3ef6ksr2><a href="/cn/" data-astro-cid-3ef6ksr2>简体中文</a></li>
+            <li data-astro-cid-3ef6ksr2><a href="/en/" data-astro-cid-3ef6ksr2>English</a></li>
+          </ul>
+        </div>
+        <button class="header__mobile-toggle" id="mobileToggle" aria-label="Menu" data-astro-cid-3ef6ksr2>
+          <span data-astro-cid-3ef6ksr2></span><span data-astro-cid-3ef6ksr2></span><span data-astro-cid-3ef6ksr2></span>
+        </button>
+      </div>
+    </div>
+  </header>
 
   <main>
     <slot />
   </main>
 
-<footer class="footer" data-astro-cid-sz7xmlte> <div class="footer__main container" data-astro-cid-sz7xmlte> <div class="footer__brand" data-astro-cid-sz7xmlte> <img src="/logo-white.png" alt="VIEWCO 偉保工程" class="footer__logo" width="150" height="40" data-astro-cid-sz7xmlte> <p class="footer__slogan" data-astro-cid-sz7xmlte>專業及經驗豐富的偉保團隊致力提供最優質服務以符合香港政府所有法定要求和職業安全及健康標準。</p> </div> <div class="footer__col" data-astro-cid-sz7xmlte> <h4 class="footer__heading" data-astro-cid-sz7xmlte>首頁</h4> <nav data-astro-cid-sz7xmlte> <a href="/" data-astro-cid-sz7xmlte>首頁</a><a href="/about-us/" data-astro-cid-sz7xmlte>關於我們</a><a href="/our-services/" data-astro-cid-sz7xmlte>服務內容</a><a href="/our-clients/" data-astro-cid-sz7xmlte>客戶簡介</a><a href="/join-us/" data-astro-cid-sz7xmlte>加入我們</a><a href="/partners/" data-astro-cid-sz7xmlte>合作伙伴</a><a href="/contacts/" data-astro-cid-sz7xmlte>聯絡我們</a> </nav> </div> <div class="footer__col" data-astro-cid-sz7xmlte> <h4 class="footer__heading" data-astro-cid-sz7xmlte>總公司</h4> <address data-astro-cid-sz7xmlte> <p data-astro-cid-sz7xmlte>中國香港 九龍 九龍灣宏泰道12號 榮發工業大廈7樓711-713室</p> <p data-astro-cid-sz7xmlte><a href="/cdn-cgi/l/email-protection#0b6e656c62656e6e7962656c4b7d626e7c686425686466256360" data-astro-cid-sz7xmlte><span class="__cf_email__" data-cfemail="761318111f181313041f181136001f130115195815191b581e1d">[email&#160;protected]</span></a></p> <p data-astro-cid-sz7xmlte><a href="tel:+85225430610" data-astro-cid-sz7xmlte>+852 25430610</a></p> <p data-astro-cid-sz7xmlte><a href="https://wa.me/85290218198" data-astro-cid-sz7xmlte>WhatsApp: +852 90218198</a></p> </address> </div> <div class="footer__col" data-astro-cid-sz7xmlte> <h4 class="footer__heading" data-astro-cid-sz7xmlte>社交媒體</h4> <div class="footer__social-links" data-astro-cid-sz7xmlte> <a href="https://www.instagram.com/viewco.engineering/" target="_blank" rel="noopener" aria-label="Instagram" class="footer__social-link" data-astro-cid-sz7xmlte> <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-astro-cid-sz7xmlte><rect x="2" y="2" width="20" height="20" rx="5" data-astro-cid-sz7xmlte></rect><circle cx="12" cy="12" r="5" data-astro-cid-sz7xmlte></circle><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none" data-astro-cid-sz7xmlte></circle></svg> </a> <a href="/cdn-cgi/l/email-protection#f89d969f91969d9d8a91969fb88e919d8f9b97d69b9795d69093" aria-label="Email" class="footer__social-link" data-astro-cid-sz7xmlte> <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-astro-cid-sz7xmlte><rect x="2" y="4" width="20" height="16" rx="2" data-astro-cid-sz7xmlte></rect><path d="M22 4L12 13 2 4" data-astro-cid-sz7xmlte></path></svg> </a> <a href="https://wa.me/85290218198" target="_blank" rel="noopener" aria-label="WhatsApp" class="footer__social-link" data-astro-cid-sz7xmlte> <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-astro-cid-sz7xmlte><path d="M17.5 14.5c-.3.8-1.3 1.5-2.2 1.5-1.2 0-2.5-.7-3.5-1.5s-1.8-2.2-1.8-3.5c0-.9.5-1.9 1.3-2.2.3-.1.5 0 .7.3l1 1.5c.2.2.2.6 0 .8l-.7.7c-.1.1-.1.3 0 .5.4.6 1 1.2 1.7 1.5.2.1.4 0 .5-.1l.7-.7c.2-.2.5-.2.8 0l1.5 1c.2.2.3.4.3.7z" data-astro-cid-sz7xmlte></path><path d="M20.5 12a8.5 8.5 0 1 1-3.2-6.8" data-astro-cid-sz7xmlte></path><path d="M12 3.5a8.5 8.5 0 0 1 8.5 8.5" data-astro-cid-sz7xmlte></path></svg> </a> </div>  </div> </div> <div class="footer__bottom" data-astro-cid-sz7xmlte> <div class="container" data-astro-cid-sz7xmlte> <p data-astro-cid-sz7xmlte>© 2026. 偉保工程有限公司 All Rights Reserved.</p> </div> </div> </footer>
-<img src="/awards.png" alt="Awards" style="width:100%;height:auto">
-<script type="module">const o=document.getElementById("header"),t=document.getElementById("mobileToggle"),l=document.getElementById("mainNav"),c=document.getElementById("langToggle"),s=document.getElementById("langDropdown"),d=document.getElementById("searchToggle"),e=document.getElementById("searchOverlay"),a=document.getElementById("searchClose");t?.addEventListener("click",()=>{t.classList.toggle("is-open"),l?.classList.toggle("is-open"),document.body.classList.toggle("menu-open")});c?.addEventListener("click",n=>{n.stopPropagation(),s?.classList.toggle("is-open")});d?.addEventListener("click",()=>{e?.classList.add("is-open")});a?.addEventListener("click",()=>{e?.classList.remove("is-open")});e?.querySelector(".search-overlay__bg")?.addEventListener("click",()=>{e?.classList.remove("is-open")});document.addEventListener("click",()=>{s?.classList.remove("is-open")});window.addEventListener("scroll",()=>{o?.classList.toggle("is-scrolled",window.scrollY>50)});</script>
+  <footer class="footer" data-astro-cid-sz7xmlte>
+    <div class="footer__main container" data-astro-cid-sz7xmlte>
+      <div class="footer__brand" data-astro-cid-sz7xmlte>
+        <img src="/logo-white.png" alt={logoAlt} class="footer__logo" width="150" height="40" data-astro-cid-sz7xmlte />
+        <p class="footer__slogan" data-astro-cid-sz7xmlte>{siteTagline}</p>
+      </div>
+      <div class="footer__col" data-astro-cid-sz7xmlte>
+        <h4 class="footer__heading" data-astro-cid-sz7xmlte>{locale === "en" ? "Home" : locale === "zh-Hans" ? "首页" : "首頁"}</h4>
+        <nav data-astro-cid-sz7xmlte>
+          {menu?.items?.map(item => <a href={item.url} data-astro-cid-sz7xmlte>{item.label}</a>)}
+        </nav>
+      </div>
+      <div class="footer__col" data-astro-cid-sz7xmlte>
+        <h4 class="footer__heading" data-astro-cid-sz7xmlte>{locale === "en" ? "Head Office" : locale === "zh-Hans" ? "总公司" : "總公司"}</h4>
+        <address data-astro-cid-sz7xmlte>
+          <p data-astro-cid-sz7xmlte>{locale === "en" ? "Unit 711-713, 7/F, Wing Fat Industrial Building, 12 Wang Tai Road, Kowloon Bay, Hong Kong" : locale === "zh-Hans" ? "中国香港 九龙 九龙湾宏泰道12号 荣发工业大厦7楼711-713室" : "中國香港 九龍 九龍灣宏泰道12號 榮發工業大廈7樓711-713室"}</p>
+          <p data-astro-cid-sz7xmlte><a href="mailto:engineering@viewco.com.hk" data-astro-cid-sz7xmlte>engineering@viewco.com.hk</a></p>
+          <p data-astro-cid-sz7xmlte><a href="tel:+85225430610" data-astro-cid-sz7xmlte>+852 25430610</a></p>
+          <p data-astro-cid-sz7xmlte><a href="https://wa.me/85290218198" data-astro-cid-sz7xmlte>WhatsApp: +852 90218198</a></p>
+        </address>
+      </div>
+      <div class="footer__col" data-astro-cid-sz7xmlte>
+        <h4 class="footer__heading" data-astro-cid-sz7xmlte>{locale === "en" ? "Social Media" : locale === "zh-Hans" ? "社交媒体" : "社交媒體"}</h4>
+        <div class="footer__social-links" data-astro-cid-sz7xmlte>
+          <a href="https://www.instagram.com/viewco.engineering/" target="_blank" rel="noopener" aria-label="Instagram" class="footer__social-link" data-astro-cid-sz7xmlte>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-astro-cid-sz7xmlte><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <a href="mailto:engineering@viewco.com.hk" aria-label="Email" class="footer__social-link" data-astro-cid-sz7xmlte>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-astro-cid-sz7xmlte><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 4L12 13 2 4"/></svg>
+          </a>
+          <a href="https://wa.me/85290218198" target="_blank" rel="noopener" aria-label="WhatsApp" class="footer__social-link" data-astro-cid-sz7xmlte>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-astro-cid-sz7xmlte><path d="M17.5 14.5c-.3.8-1.3 1.5-2.2 1.5-1.2 0-2.5-.7-3.5-1.5s-1.8-2.2-1.8-3.5c0-.9.5-1.9 1.3-2.2.3-.1.5 0 .7.3l1 1.5c.2.2.2.6 0 .8l-.7.7c-.1.1-.1.3 0 .5.4.6 1 1.2 1.7 1.5.2.1.4 0 .5-.1l.7-.7c.2-.2.5-.2.8 0l1.5 1c.2.2.3.4.3.7z"/><path d="M20.5 12a8.5 8.5 0 1 1-3.2-6.8"/><path d="M12 3.5a8.5 8.5 0 0 1 8.5 8.5"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="footer__bottom" data-astro-cid-sz7xmlte>
+      <div class="container" data-astro-cid-sz7xmlte>
+        <p data-astro-cid-sz7xmlte>© 2026 {siteTitle} All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <img src="/awards.png" alt="Awards" style="width:100%;height:auto;display:block" />
+
+  <script>
+    const o=document.getElementById("header"),t=document.getElementById("mobileToggle"),l=document.getElementById("mainNav"),c=document.getElementById("langToggle"),s=document.getElementById("langDropdown");
+    window.addEventListener("scroll",()=>{o?.classList.toggle("is-scrolled",window.scrollY>50)});
+    t?.addEventListener("click",()=>{t.classList.toggle("is-open"),l?.classList.toggle("is-open"),document.body.classList.toggle("menu-open")});
+    c?.addEventListener("click",e=>{e.stopPropagation(),s?.classList.toggle("is-open")});
+    document.addEventListener("click",()=>{s?.classList.remove("is-open")});
+  </script>
 </body>
 </html>
