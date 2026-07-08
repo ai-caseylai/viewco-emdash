@@ -1,0 +1,39 @@
+[
+  {
+    "id": "01KX08W1J0NVWSG5KBFCCWX5A9",
+    "slug": "pages",
+    "label": "Pages",
+    "labelSingular": "Page",
+    "supports": [
+      "drafts",
+      "revisions"
+    ],
+    "source": "seed",
+    "hasSeo": false,
+    "commentsEnabled": false,
+    "commentsModeration": "first_time",
+    "commentsClosedAfterDays": 90,
+    "commentsAutoApproveUsers": true,
+    "createdAt": "2026-07-08 07:07:57",
+    "updatedAt": "2026-07-08 07:07:57"
+  },
+  {
+    "id": "01KX08VYT6NBF5RJ7WWND78D7G",
+    "slug": "posts",
+    "label": "Posts",
+    "labelSingular": "Post",
+    "supports": [
+      "drafts",
+      "revisions",
+      "seo"
+    ],
+    "source": "seed",
+    "hasSeo": true,
+    "commentsEnabled": false,
+    "commentsModeration": "first_time",
+    "commentsClosedAfterDays": 90,
+    "commentsAutoApproveUsers": true,
+    "createdAt": "2026-07-08 07:07:54",
+    "updatedAt": "2026-07-08 07:07:54"
+  }
+]

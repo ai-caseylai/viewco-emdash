@@ -1,0 +1,32 @@
+[
+  {
+    "id": "AB972345EED3489D8C8310E501",
+    "name": "primary",
+    "label": "Primary",
+    "created_at": "2026-07-08 15:08:25.313156",
+    "updated_at": "2026-07-08 15:08:25.313156",
+    "locale": "en",
+    "translation_group": "AB972345EED3489D8C8310E501",
+    "itemCount": 7
+  },
+  {
+    "id": "C756D669C6034343B855AB5D61",
+    "name": "primary",
+    "label": "Primary",
+    "created_at": "2026-07-08 15:08:25.313156",
+    "updated_at": "2026-07-08 15:08:25.313156",
+    "locale": "zh-Hans",
+    "translation_group": "C756D669C6034343B855AB5D61",
+    "itemCount": 7
+  },
+  {
+    "id": "F52751C157DD46B99E513AC9BD",
+    "name": "primary",
+    "label": "Primary",
+    "created_at": "2026-07-08 15:08:25.313156",
+    "updated_at": "2026-07-08 15:08:25.313156",
+    "locale": "zh-Hant",
+    "translation_group": "F52751C157DD46B99E513AC9BD",
+    "itemCount": 7
+  }
+]

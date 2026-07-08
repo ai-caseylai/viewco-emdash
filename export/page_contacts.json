@@ -1,0 +1,24 @@
+{
+  "id": "DF0BFA9BB57341ED926FD8FB23",
+  "type": "pages",
+  "slug": "contacts",
+  "status": "published",
+  "data": {
+    "title": "Contact Us",
+    "content": "### Contact Us\n\n### Always Welcome to Contact Us\n\nOur professional consultants are always ready to assist you.\n\n### Head Office\n\n### 12 Wang Tai Road, Kowloon Bay\n\n### Wing Fat Industrial Building\n\n### Unit 711-713, 7/F\n\n### Kowloon, Hong Kong\n\nTel: +852 25430610\n\nWhatsApp: +852 90218198\n\nFax: +852 28153681\n\nEmail: engineering@viewco.com.hk\n"
+  },
+  "authorId": null,
+  "primaryBylineId": null,
+  "createdAt": "2026-07-08 15:08:25.313156",
+  "updatedAt": "2026-07-08 15:08:25.313156",
+  "publishedAt": "2026-07-08 15:08:25.313156",
+  "scheduledAt": null,
+  "liveRevisionId": null,
+  "draftRevisionId": null,
+  "version": 1,
+  "locale": "en",
+  "translationGroup": "49C9A5B222904D5B83FEE3381D",
+  "bylines": [],
+  "byline": null,
+  "_rev": "MToyMDI2LTA3LTA4IDE1OjA4OjI1LjMxMzE1Ng=="
+}
