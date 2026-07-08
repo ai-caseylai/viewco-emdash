@@ -155,5 +155,17 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 </script>
+
+<script>
+// Render image references in Portable Text as actual images
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll(".content-block p, .content-block span").forEach(el => {
+    if (el.innerHTML.includes("<img ")) {
+      el.innerHTML = el.textContent; // decode HTML entities
+    }
+  });
+});
+</script>
+
 </body>
 </html>
