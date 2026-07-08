@@ -1,40 +1,52 @@
 ---
 import { getEmDashCollection, getSiteSettings } from "emdash";
-import { Image } from "emdash/ui";
 import Base from "../../layouts/Base.astro";
-import { resolveStarterSiteIdentity } from "../../utils/site-identity";
-import { SITE_TITLES, SITE_TAGLINES, detectLocale } from "../../utils/i18n";
+import { detectLocale, SITE_TITLES, SITE_TAGLINES } from "../../utils/i18n";
 
 const locale = detectLocale(Astro.url.pathname);
 const siteTitle = SITE_TITLES[locale];
 const siteTagline = SITE_TAGLINES[locale];
-const { entries: posts } = await getEmDashCollection("posts", {
-	orderBy: { published_at: "desc" },
-});
+const homeUrl = "/cn/";
+const servicesUrl = "/cn/our-services/";
+
+const t = {
+  about: "关于伟保",
+  heroTitle: "四十年工程卓越的传奇",
+  heroText1: "伟保工程有限公司在1984年4月创办，专注于香港屋宇设备及环保工程服务。",
+  heroText2: "我们致力于提供卓越的技术，全面高质量的服务。我们的专业服务取得 ISO9001:2015，ISO14000:2015 及 ISO45001:2018 国际标准的认证。",
+  servicesTitle: "业务服务内容",
+  servicesDesc: "伟保是一间提供香港机电工程服务承建商，包括空调及通风及抽气系统的安装，改建维护及保养工程。",
+  card1Title: "项目管理", card1Desc: "超过四十年的专业经验",
+  card2Title: "维修及保养", card2Desc: "为客户提供可靠的保障",
+  card3Title: "室内装修", card3Desc: "创造完美的室内空间与空调规划",
+  qualityTitle: "高质量的服务",
+  qualityText: "专业及经验丰富的伟保团队致力提供最优质服务以符合香港政府所有法定要求和职业安全及健康标准。",
+  readMore: "阅读更多",
+};
 ---
 
 <Base title={siteTitle} description={siteTagline}>
-	<h1>Recent Posts</h1>
-	{
-		posts.length === 0 ? (
-			<p>
-				No posts yet.{" "}
-				<a href="/_emdash/admin/content/posts/new">Create one</a>.
-			</p>
-		) : (
-			<ul>
-				{posts.map((post) => (
-					<li>
-						<a href={`/cn/posts/${post.id}`}>
-							{post.data.featured_image && (
-								<Image image={post.data.featured_image} />
-							)}
-							<h2>{post.data.title}</h2>
-						</a>
-						{post.data.excerpt && <p>{post.data.excerpt}</p>}
-					</li>
-				))}
-			</ul>
-		)
-	}
+  <section class="hero-section" data-astro-cid-j7pv25f6>
+    <div class="hero-section__bg" data-astro-cid-j7pv25f6></div>
+    <div class="hero-section__overlay" data-astro-cid-j7pv25f6></div>
+    <div class="hero-section__content" data-astro-cid-j7pv25f6>
+      <h1 class="hero-section__title" data-astro-cid-j7pv25f6>{t.about}</h1>
+      <p class="hero-section__text" data-astro-cid-j7pv25f6>{t.heroTitle}</p>
+      <p class="hero-section__text" data-astro-cid-j7pv25f6>{t.heroText1}</p>
+      <p class="hero-section__text" data-astro-cid-j7pv25f6>{t.heroText2}</p>
+    </div>
+  </section>
+  <section class="services-section" data-astro-cid-j7pv25f6>
+    <div class="section-title" data-astro-cid-j7pv25f6>
+      <span class="section-subtitle" data-astro-cid-j7pv25f6>Our Services</span>
+      <h2 data-astro-cid-j7pv25f6>{t.servicesTitle}</h2>
+      <p class="section-desc" data-astro-cid-j7pv25f6>{t.servicesDesc}</p>
+    </div>
+    <div class="services-grid" data-astro-cid-j7pv25f6>
+      <div class="service-card" data-astro-cid-j7pv25f6><div class="service-card__image" data-astro-cid-j7pv25f6><img src="/home-about.jpg" alt={t.card1Title} data-astro-cid-j7pv25f6 /></div><div class="service-card__content" data-astro-cid-j7pv25f6><h3 data-astro-cid-j7pv25f6>{t.card1Title}</h3><p data-astro-cid-j7pv25f6>{t.card1Desc}</p><a href={servicesUrl} class="service-card__link" data-astro-cid-j7pv25f6>{t.readMore} &rarr;</a></div></div>
+      <div class="service-card" data-astro-cid-j7pv25f6><div class="service-card__image" data-astro-cid-j7pv25f6><img src="/home-services.jpg" alt={t.card2Title} data-astro-cid-j7pv25f6 /></div><div class="service-card__content" data-astro-cid-j7pv25f6><h3 data-astro-cid-j7pv25f6>{t.card2Title}</h3><p data-astro-cid-j7pv25f6>{t.card2Desc}</p><a href={servicesUrl} class="service-card__link" data-astro-cid-j7pv25f6>{t.readMore} &rarr;</a></div></div>
+      <div class="service-card" data-astro-cid-j7pv25f6><div class="service-card__image" data-astro-cid-j7pv25f6><img src="/home-bg.jpg" alt={t.card3Title} loading="lazy" data-astro-cid-j7pv25f6 /></div><div class="service-card__content" data-astro-cid-j7pv25f6><h3 data-astro-cid-j7pv25f6>{t.card3Title}</h3><p data-astro-cid-j7pv25f6>{t.card3Desc}</p><a href={servicesUrl} class="service-card__link" data-astro-cid-j7pv25f6>{t.readMore} &rarr;</a></div></div>
+    </div>
+  </section>
+  <section class="section section--dark" data-astro-cid-j7pv25f6><div class="container" data-astro-cid-j7pv25f6><div class="content-block" style="text-align:center"><span class="section-subtitle" style="color:rgba(255,255,255,0.6)">Quality Service</span><h2 style="color:#fff">{t.qualityTitle}</h2><p style="color:rgba(255,255,255,0.7);max-width:700px;margin:0 auto;line-height:1.8">{t.qualityText}</p></div></div></section>
 </Base>

@@ -1,40 +1,52 @@
 ---
 import { getEmDashCollection, getSiteSettings } from "emdash";
-import { Image } from "emdash/ui";
 import Base from "../../layouts/Base.astro";
-import { resolveStarterSiteIdentity } from "../../utils/site-identity";
-import { SITE_TITLES, SITE_TAGLINES, detectLocale } from "../../utils/i18n";
+import { detectLocale, SITE_TITLES, SITE_TAGLINES } from "../../utils/i18n";
 
 const locale = detectLocale(Astro.url.pathname);
 const siteTitle = SITE_TITLES[locale];
 const siteTagline = SITE_TAGLINES[locale];
-const { entries: posts } = await getEmDashCollection("posts", {
-	orderBy: { published_at: "desc" },
-});
+const homeUrl = "/en/";
+const servicesUrl = "/en/our-services/";
+
+const t = {
+  about: "About VIEWCO",
+  heroTitle: "Four Decades of Engineering Excellence",
+  heroText1: "Founded in April 1984, VIEWCO Engineering Co., Ltd. specializes in Hong Kong building services and environmental engineering, including installation, alteration, addition, maintenance and repair of air-conditioning, ventilation, electrical systems, and interior fit-out.",
+  heroText2: "We are dedicated to providing technical excellence and comprehensive quality services. Our professional services are certified to ISO 9001:2015, ISO 14001:2015 and ISO 45001:2018 international standards.",
+  servicesTitle: "Our Business Services",
+  servicesDesc: "VIEWCO is a Hong Kong E&M engineering service contractor, providing installation, alteration, maintenance and repair of air-conditioning, ventilation and exhaust systems.",
+  card1Title: "Project Management", card1Desc: "Over 40 Years of Professional Experience",
+  card2Title: "Maintenance & Repair", card2Desc: "Reliable Protection for Our Clients",
+  card3Title: "Interior Fit-Out", card3Desc: "Creating Perfect Interior Spaces with AC Planning",
+  qualityTitle: "Quality Service",
+  qualityText: "Our professional and experienced VIEWCO team is dedicated to providing the highest quality services in compliance with all Hong Kong Government statutory requirements and occupational safety and health standards.",
+  readMore: "Read More",
+};
 ---
 
 <Base title={siteTitle} description={siteTagline}>
-	<h1>Recent Posts</h1>
-	{
-		posts.length === 0 ? (
-			<p>
-				No posts yet.{" "}
-				<a href="/_emdash/admin/content/posts/new">Create one</a>.
-			</p>
-		) : (
-			<ul>
-				{posts.map((post) => (
-					<li>
-						<a href={`/en/posts/${post.id}`}>
-							{post.data.featured_image && (
-								<Image image={post.data.featured_image} />
-							)}
-							<h2>{post.data.title}</h2>
-						</a>
-						{post.data.excerpt && <p>{post.data.excerpt}</p>}
-					</li>
-				))}
-			</ul>
-		)
-	}
+  <section class="hero-section" data-astro-cid-j7pv25f6>
+    <div class="hero-section__bg" data-astro-cid-j7pv25f6></div>
+    <div class="hero-section__overlay" data-astro-cid-j7pv25f6></div>
+    <div class="hero-section__content" data-astro-cid-j7pv25f6>
+      <h1 class="hero-section__title" data-astro-cid-j7pv25f6>{t.about}</h1>
+      <p class="hero-section__text" data-astro-cid-j7pv25f6>{t.heroTitle}</p>
+      <p class="hero-section__text" data-astro-cid-j7pv25f6>{t.heroText1}</p>
+      <p class="hero-section__text" data-astro-cid-j7pv25f6>{t.heroText2}</p>
+    </div>
+  </section>
+  <section class="services-section" data-astro-cid-j7pv25f6>
+    <div class="section-title" data-astro-cid-j7pv25f6>
+      <span class="section-subtitle" data-astro-cid-j7pv25f6>Our Services</span>
+      <h2 data-astro-cid-j7pv25f6>{t.servicesTitle}</h2>
+      <p class="section-desc" data-astro-cid-j7pv25f6>{t.servicesDesc}</p>
+    </div>
+    <div class="services-grid" data-astro-cid-j7pv25f6>
+      <div class="service-card" data-astro-cid-j7pv25f6><div class="service-card__image" data-astro-cid-j7pv25f6><img src="/home-about.jpg" alt={t.card1Title} data-astro-cid-j7pv25f6 /></div><div class="service-card__content" data-astro-cid-j7pv25f6><h3 data-astro-cid-j7pv25f6>{t.card1Title}</h3><p data-astro-cid-j7pv25f6>{t.card1Desc}</p><a href={servicesUrl} class="service-card__link" data-astro-cid-j7pv25f6>{t.readMore} &rarr;</a></div></div>
+      <div class="service-card" data-astro-cid-j7pv25f6><div class="service-card__image" data-astro-cid-j7pv25f6><img src="/home-services.jpg" alt={t.card2Title} data-astro-cid-j7pv25f6 /></div><div class="service-card__content" data-astro-cid-j7pv25f6><h3 data-astro-cid-j7pv25f6>{t.card2Title}</h3><p data-astro-cid-j7pv25f6>{t.card2Desc}</p><a href={servicesUrl} class="service-card__link" data-astro-cid-j7pv25f6>{t.readMore} &rarr;</a></div></div>
+      <div class="service-card" data-astro-cid-j7pv25f6><div class="service-card__image" data-astro-cid-j7pv25f6><img src="/home-bg.jpg" alt={t.card3Title} loading="lazy" data-astro-cid-j7pv25f6 /></div><div class="service-card__content" data-astro-cid-j7pv25f6><h3 data-astro-cid-j7pv25f6>{t.card3Title}</h3><p data-astro-cid-j7pv25f6>{t.card3Desc}</p><a href={servicesUrl} class="service-card__link" data-astro-cid-j7pv25f6>{t.readMore} &rarr;</a></div></div>
+    </div>
+  </section>
+  <section class="section section--dark" data-astro-cid-j7pv25f6><div class="container" data-astro-cid-j7pv25f6><div class="content-block" style="text-align:center"><span class="section-subtitle" style="color:rgba(255,255,255,0.6)">Quality Service</span><h2 style="color:#fff">{t.qualityTitle}</h2><p style="color:rgba(255,255,255,0.7);max-width:700px;margin:0 auto;line-height:1.8">{t.qualityText}</p></div></div></section>
 </Base>
