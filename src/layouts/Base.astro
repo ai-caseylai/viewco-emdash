@@ -136,6 +136,7 @@ const homeUrl = prefix + "/";
 <script>
 // Accordion: click client name to toggle property list
 document.addEventListener("DOMContentLoaded", () => {
+  if (!location.pathname.includes("our-clients")) return;
   const container = document.querySelector(".content-block");
   if (!container) return;
   const h3s = container.querySelectorAll("h3");
