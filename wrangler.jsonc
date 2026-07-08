@@ -5,7 +5,7 @@
 	"compatibility_date": "2026-02-24",
 	"compatibility_flags": ["nodejs_compat"],
 	"d1_databases": [
-		{ "binding": "DB", "database_name": "viewco-cms-db", "database_id": "27c3486c-6abc-40da-bf86-26dea6443b85" }
+		{ "binding": "DB", "database_name": "viewco-cms-db", "database_id": "76553bf2-26ff-4109-8d7e-53180b919f00" }
 	],
 	"r2_buckets": [
 		{ "binding": "MEDIA", "bucket_name": "viewco-cms-media" }
