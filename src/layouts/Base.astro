@@ -65,6 +65,24 @@ const pageCtx = createPublicPageContext({
 		<title>{fullTitle}</title>
 		{pageDescription && <meta name="description" content={pageDescription} />}
 		{canonical && <link rel="canonical" href={canonical} />}
+		<script>
+  (function() {
+    var t = localStorage.getItem("emdash_token");
+    if (t && location.pathname.startsWith("/_emdash")) {
+      var orig = window.fetch;
+      window.fetch = function(url, opts) {
+        opts = opts || {};
+        opts.headers = opts.headers || {};
+        if (opts.headers instanceof Headers) {
+          opts.headers.set("Authorization", "Bearer " + t);
+        } else {
+          opts.headers["Authorization"] = "Bearer " + t;
+        }
+        return orig.call(this, url, opts);
+      };
+    }
+  })();
+</script>
 		<EmDashHead page={pageCtx} />
 	</head>
 	<body>
@@ -94,7 +112,26 @@ const pageCtx = createPublicPageContext({
 		</main>
 
 		<footer>
-			<p>&copy; 2026 {siteTitle} All Rights Reserved.</p>
+			<div style="max-width:1100px;margin:0 auto;padding:2rem;display:flex;flex-wrap:wrap;gap:2rem;justify-content:space-between;align-items:flex-start">
+				<div>
+					<p style="font-weight:600;margin-bottom:0.5rem">{siteTitle}</p>
+					<p style="color:#94a3b8;font-size:0.875rem;max-width:300px">{siteTagline}</p>
+				</div>
+				<div style="display:flex;gap:1rem;align-items:center">
+					<a href="https://www.instagram.com/viewco.engineering/" target="_blank" rel="noopener" aria-label="Instagram" style="display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;background:#e1306c;color:#fff;text-decoration:none;flex-shrink:0">
+						<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
+					</a>
+					<a href="mailto:engineering@viewco.com.hk" aria-label="Email" style="display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;background:#2563eb;color:#fff;text-decoration:none;flex-shrink:0">
+						<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 4L12 13 2 4"/></svg>
+					</a>
+					<a href="https://wa.me/85290218198" target="_blank" rel="noopener" aria-label="WhatsApp" style="display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;background:#25d366;color:#fff;text-decoration:none;flex-shrink:0">
+						<svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.5c-.3.8-1.3 1.5-2.2 1.5-1.2 0-2.5-.7-3.5-1.5s-1.8-2.2-1.8-3.5c0-.9.5-1.9 1.3-2.2.3-.1.5 0 .7.3l1 1.5c.2.2.2.6 0 .8l-.7.7c-.1.1-.1.3 0 .5.4.6 1 1.2 1.7 1.5.2.1.4 0 .5-.1l.7-.7c.2-.2.5-.2.8 0l1.5 1c.2.2.3.4.3.7z"/><path d="M20.5 12a8.5 8.5 0 1 1-3.2-6.8" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M12 3.5a8.5 8.5 0 0 1 8.5 8.5" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+					</a>
+				</div>
+			</div>
+			<div style="border-top:1px solid #334155;padding:1rem 2rem;text-align:center;font-size:0.75rem;color:#64748b">
+				<p>&copy; 2026 {siteTitle} All Rights Reserved.</p>
+			</div>
 			<WidgetArea name="sidebar" />
 		</footer>
 
