@@ -1,0 +1,57 @@
+---
+import Base from "../layouts/Base.astro";
+const prefix = "";
+const t = {
+  pageTitle: "里程碑",
+  heroTitle: "Milestones",
+  heroSub: "四十年工程卓越傳奇",
+  sections: [
+    { year: "2025", events: ["6月 — ESG 約章3+", "4月 — 偉保工程(深圳)有限公司正式成立", "3月 — 開心工作間2025", "1月 — 香港兒童醫院香港母乳庫 Air Cooled Chiller Unit 安裝工程"] },
+    { year: "2024", events: ["12月 — HSUHK 傑出中小企 ESG 及商業表現獎", "10月 — 首席快樂官欣賞大獎", "10月 —「友商有良」5 Years+", "7月 — ESG一站通年度中期聚匯表揚獎", "7月 —「首屆商務經濟產業發展大獎100強」", "7月 — 經緯青年商會「飛越品牌大獎」", "6月 — 最佳中小企業獎", "5月 — A Caring Company", "4月 — ESG約章 (2024-2025)", "3月 — 偉保40週年晚宴"] },
+    { year: "2023", events: ["12月 — ESG+約章證書頒獎典禮2023", "11月 —「友商有良」5年卓越企業嘉許狀", "10月 — CHO 首席快樂官", "4月 — 上海參觀第34屆中國制冷展"] },
+    { year: "2020-2022", events: ["榮獲香港社會服務聯會商界展關懷計劃嘉許", "成為香港物業創新科技及環保協會會員", "獲香港工程師學會審批推行Scheme A"] },
+    { year: "2019", events: ["粵港澳大灣區100強企業品牌大獎", "獲得ACI之OHSAS-18001認証", "美孚七期更換懸磁浮冷水機，公司員工約118名"] },
+    { year: "2018", events: ["獲得ACI之ISO-14001認証", "獲評為2018十一良心消費運動"] },
+    { year: "1984-2017", events: ["2016 — 電業承辦商註冊證明書", "2014 — Arthur Wong 加入公司，員工約九十名", "2013 — 展開室內空氣質量(IAQ)服務", "2012 — 開展室內設計及裝飾工程", "2008-2010 — 信和物業管理(約50個地點)冷氣系統保養", "2004 — 美孚新村四期冷氣機房之水塔大修", "2001 — 承接香港國際學校之機電工程合約", "2000 — 成為太古物業管理之指定承建商", "1999 — 獲得HKQAA之ISO-9001認証", "1995 — 安排員工到日本大金冷氣交流", "1994 — 美孚冷氣系統更換工程", "1992 — 成為註冊電業承辦商", "1991 — 成為香港電器工程商會永遠會員", "1989 — 承接飲食集團冷氣及通風系統工程", "1988 — 香港冷凍庫(HKRCO)冷凍系統更換", "1984 — 創立「偉保工程有限公司」"] }
+  ]
+};
+---
+<Base title={t.pageTitle} description={t.heroSub}>
+  <section class="page-hero"><div class="container"><h1>{t.heroTitle}</h1><p>{t.heroSub}</p></div></section>
+  <section class="section"><div class="container"><div class="content-block">
+    {t.sections.map(s => (
+      <div class="accordion-item">
+        <h3 class="accordion-header" data-accordion-trigger>
+          <span class="accordion-arrow">▶</span> {s.year}
+        </h3>
+        <div class="accordion-body">
+          {s.events.map(e => <p>{e}</p>)}
+        </div>
+      </div>
+    ))}
+  </div></div></section>
+  <style>
+    .accordion-item { margin-bottom: .75rem; border: 1px solid #e0e0e0; border-radius: 6px; overflow: hidden; }
+    .accordion-header { cursor: pointer; padding: 1rem 1.25rem; margin: 0; font-size: 1.1rem; font-weight: 500; color: #181d4e; background: #fafafa; display: flex; align-items: center; gap: .5rem; user-select: none; transition: background .2s; }
+    .accordion-header:hover { background: #f0f0f0; }
+    .accordion-arrow { display: inline-block; transition: transform .25s; font-size: .75rem; width: 16px; text-align: center; flex-shrink: 0; }
+    .accordion-header.open .accordion-arrow { transform: rotate(90deg); }
+    .accordion-body { display: none; padding: 1rem 1.25rem 1.25rem 2.5rem; background: #fff; }
+    .accordion-body p { margin-bottom: .5rem; line-height: 1.8; color: #444; }
+    @media (max-width: 767px) { .accordion-body { padding-left: 1.5rem; } }
+  </style>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      document.querySelectorAll("[data-accordion-trigger]").forEach(header => {
+        header.addEventListener("click", () => {
+          const body = header.nextElementSibling;
+          const isOpen = body.style.display === "block";
+          body.style.display = isOpen ? "none" : "block";
+          header.classList.toggle("open", !isOpen);
+          const arrow = header.querySelector(".accordion-arrow");
+          if (arrow) arrow.textContent = isOpen ? "▶" : "▼";
+        });
+      });
+    });
+  </script>
+</Base>

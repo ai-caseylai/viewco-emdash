@@ -1,0 +1,105 @@
+---
+import Base from "../../layouts/Base.astro";
+const t = {
+  pageTitle: "加入我们",
+  heroTitle: "Join Our Team",
+  heroSub: "加入我们，共创未来",
+  sections: [
+    {
+      title: "Career",
+      subtitle: "与我们一同成长，共创未来",
+      content: "伟保工程有限公司，成立于1984年，是香港建筑业的佼佼者。我们不仅见证了香港的历史变迁，更在建筑和工程领域中留下深刻的足迹。"
+    },
+    {
+      title: "Our Expertise",
+      subtitle: "我们的专业领域",
+      content: null,
+      subsections: [
+        { title: "空调系统", text: "我们拥有丰富的经验，致力于为客户提供高效、可靠的空调和通风方案。" },
+        { title: "通风系统", text: "从设计到安装，我们的专家团队将确保您的抽气系统运作良好，以确保室内空气品质。" },
+        { title: "改建和维护", text: "我们协助客户进行建筑改建和现有系统的维护，以确保其长期运作。" }
+      ]
+    },
+    {
+      title: "我们的价值观",
+      content: "如果你热爱建筑和工程，并渴望在一个充满挑战和机会的环境中发展，欢迎加入我们的团队！请将履历发送至 engineering@viewco.com.hk 以获取更多资讯。"
+    },
+    {
+      title: "Apply Now",
+      subtitle: "申请职位",
+      content: "请填写以下表格，我们的人力资源团队将尽快与你联络。"
+    }
+  ]
+};
+---
+<Base title={t.pageTitle} description={t.heroSub}>
+  <section class="page-hero"><div class="container"><h1>{t.heroTitle}</h1><p>{t.heroSub}</p></div></section>
+  <section class="section"><div class="container"><div class="content-block">
+    {t.sections.slice(0,3).map(s => (
+      <div class="accordion-item">
+        <h3 class="accordion-header" data-accordion-trigger>
+          <span class="accordion-arrow">▶</span> {s.title}
+          {s.subtitle && <small class="accordion-subtitle"> — {s.subtitle}</small>}
+        </h3>
+        <div class="accordion-body">
+          {s.content && <p>{s.content}</p>}
+          {s.subsections && s.subsections.map(sub => (
+            <div style="margin-bottom:1rem">
+              <h4 style="color:#181d4e;font-weight:500;margin-bottom:.25rem">{sub.title}</h4>
+              <p style="margin:0">{sub.text}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    ))}
+    <div class="accordion-item">
+      <h3 class="accordion-header open" data-accordion-trigger>
+        <span class="accordion-arrow">▼</span> {t.sections[3].title}
+        <small class="accordion-subtitle"> — {t.sections[3].subtitle}</small>
+      </h3>
+      <div class="accordion-body" style="display:block">
+        <p>{t.sections[3].content}</p>
+        <form class="contact-form" style="margin-top:1.5rem">
+          <div class="form-group"><label>申请职位</label><input type="text" name="position" required placeholder="申请职位" /></div>
+          <div class="form-group"><label>姓名</label><input type="text" name="name" required placeholder="姓名" /></div>
+          <div class="form-group"><label>电邮</label><input type="email" name="email" required placeholder="email@example.com" /></div>
+          <div class="form-group"><label>电话</label><input type="tel" name="phone" placeholder="+852" /></div>
+          <div class="form-group"><label>履历（只接受PDF）</label><input type="file" name="resume" accept=".pdf" /></div>
+          <div class="form-group"><label><input type="checkbox" required /> 我同意收集并储存我提交的数据（<a href="/cn/privacy/">私隐声明和免责声明</a>）</label></div>
+          <button type="submit" class="btn-submit">提交申请</button>
+        </form>
+      </div>
+    </div>
+  </div></div></section>
+  <style>
+    .accordion-item { margin-bottom: .75rem; border: 1px solid #e0e0e0; border-radius: 6px; overflow: hidden; }
+    .accordion-header { cursor: pointer; padding: 1rem 1.25rem; margin: 0; font-size: 1.1rem; font-weight: 500; color: #181d4e; background: #fafafa; display: flex; align-items: center; gap: .5rem; user-select: none; transition: background .2s; }
+    .accordion-header:hover { background: #f0f0f0; }
+    .accordion-header .accordion-subtitle { font-weight: 400; color: #888; font-size: .85rem; }
+    .accordion-arrow { display: inline-block; transition: transform .25s; font-size: .75rem; width: 16px; text-align: center; flex-shrink: 0; }
+    .accordion-header.open .accordion-arrow { transform: rotate(90deg); }
+    .accordion-body { display: none; padding: 1rem 1.25rem 1.25rem 2.5rem; background: #fff; }
+    .accordion-body p { margin-bottom: .75rem; line-height: 1.8; color: #444; }
+    .contact-form { display: flex; flex-direction: column; gap: 1rem; max-width: 600px; }
+    .form-group { display: flex; flex-direction: column; gap: .25rem; }
+    .form-group label { font-size: .9rem; font-weight: 500; color: #333; }
+    .form-group input[type="text"], .form-group input[type="email"], .form-group input[type="tel"] { padding: .7rem .9rem; border: 1px solid #ccc; border-radius: 4px; font-size: .95rem; }
+    .form-group input[type="checkbox"] { width: auto; margin-right: .5rem; }
+    .btn-submit { background: #fa4729; color: #fff; border: none; padding: .8rem 2rem; font-size: 1rem; font-weight: 500; border-radius: 4px; cursor: pointer; transition: opacity .2s; align-self: flex-start; }
+    .btn-submit:hover { opacity: .8; }
+    @media (max-width: 767px) { .accordion-body { padding-left: 1.5rem; } }
+  </style>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      document.querySelectorAll("[data-accordion-trigger]").forEach(h => {
+        h.addEventListener("click", () => {
+          const b = h.nextElementSibling, o = b.style.display === "block";
+          b.style.display = o ? "none" : "block";
+          h.classList.toggle("open", !o);
+          const a = h.querySelector(".accordion-arrow");
+          if (a) a.textContent = o ? "▶" : "▼";
+        });
+      });
+    });
+  </script>
+</Base>

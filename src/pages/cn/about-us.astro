@@ -1,38 +1,38 @@
 ---
-import Base from "../layouts/Base.astro";
-import { detectLocale, SITE_TITLES, SITE_TAGLINES } from "../utils/i18n";
+import Base from "../../layouts/Base.astro";
+import { detectLocale, SITE_TITLES, SITE_TAGLINES } from "../../utils/i18n";
 
 const locale = detectLocale(Astro.url.pathname);
 const siteTitle = SITE_TITLES[locale];
 const siteTagline = SITE_TAGLINES[locale];
-const prefix = locale === "zh-Hant" ? "" : locale === "zh-Hans" ? "/cn" : "/en";
+const prefix = "/cn";
 
 const t = {
-  pageTitle: "關於偉保",
+  pageTitle: "关于伟保",
   heroTitle: "About VIEWCO",
-  heroSub: "超過四十年工程卓越成就",
+  heroSub: "超过四十年工程卓越成就",
   sections: [
-    { title: "about us", subtitle: "偉保工程有限公司", content: "自1984年4月創立以來，偉保工程有限公司已經成為香港建造業界中一顆閃耀的明星。在這超過四十年的旅程中，偉保不僅見證了香港從港英時代過渡到特別行政區的重大變遷，更在建築和工程領域內刻下了不可磨滅的印記。從一家小型工程公司起家，偉保已發展成為一家領先於機電行業的工程公司，專業於空調及通風系統安裝、維修及保養工程。" },
-    { title: "創業初期", subtitle: "四十年工程卓越的傳奇", content: "偉保的創業故事始於1984年，當時香港正處於經濟急速發展的階段，建築業需求急劇增加。創辦人憑著對工程技術的熱情與對未來的洞察，決定成立一家專門提供高質量建築服務的公司。最初，公司只有幾名員工，但憑藉著專業的技術和不懈的努力，偉保很快便在業界建立了信譽。" },
-    { title: "擴展與專業化", subtitle: "四十年工程卓越的傳奇", content: "隨著業務的擴展，偉保開始引進先進的技術和設備，並專注於空調和通風系統這一核心領域。公司不僅提供安裝服務，更著重於系統的長期維護和改進，保證客戶獲得最可靠的系統性能。這種專注於細節和質量的承諾，使得偉保成為商業樓宇、辦公室、學校和餐廳首選的工程服務供應商。" }
+    { title: "about us", subtitle: "伟保工程有限公司", content: "自1984年4月创立以来，伟保工程有限公司已经成为香港建造业界中一颗闪耀的明星。在这超过四十年的旅程中，伟保不仅见证了香港从港英时代过渡到特别行政区的重大变迁，更在建筑和工程领域内刻下了不可磨灭的印记。从一家小型工程公司起家，伟保已发展成为一家领先于机电行业的工程公司，专业于空调及通风系统安装、维修及保养工程。" },
+    { title: "创业初期", subtitle: "四十年工程卓越的传奇", content: "伟保的创业故事始于1984年，当时香港正处于经济急速发展的阶段，建筑业需求急剧增加。创办人凭着对工程技术的热情与对未来的洞察，决定成立一家专门提供高质量建筑服务的公司。最初，公司只有几名员工，但凭借着专业的技术和不懈的努力，伟保很快便在业界建立了信誉。" },
+    { title: "扩展与专业化", subtitle: "四十年工程卓越的传奇", content: "随着业务的扩展，伟保开始引进先进的技术和设备，并专注于空调和通风系统这一核心领域。公司不仅提供安装服务，更着重于系统的长期维护和改进，保证客户获得最可靠的系统性能。这种专注于细节和质量的承诺，使得伟保成为商业楼宇、办公室、学校和餐厅首选的工程服务供应商。" }
   ],
   linkCards: [
-    { label: "我們的里程碑", link: `${prefix}/milestones/`, icon: "🏆" },
-    { label: "管理團隊", link: `${prefix}/management-team/`, icon: "👥" },
-    { label: "文化，願景，使命與核心價值", link: `${prefix}/culture/`, icon: "💡" }
+    { label: "我们的里程碑", link: `${prefix}/milestones/`, icon: "🏆" },
+    { label: "管理团队", link: `${prefix}/management-team/`, icon: "👥" },
+    { label: "文化，愿景，使命与核心价值", link: `${prefix}/culture/`, icon: "💡" }
   ],
-  strengthsTitle: "核心優勢",
+  strengthsTitle: "核心优势",
   strengths: [
-    { name: "工程項目管理", desc: "超過四十年的專業經驗，確保每個項目按時、按預算及最高標準完成。", img: "/P2130002-scaled-r2qah3twc4pdxr1klpcqiv90ma1zz44xd4cti3uin8.jpg", alt: "項目管理現場" },
-    { name: "維修及保養", desc: "提供全面的預防性維護計劃，為客戶的系統提供可靠的保障。", img: "/Inspection-1-scaled-e1736498471313-1024x683.jpg", alt: "設備檢查維修" },
-    { name: "室內裝修及空調規劃", desc: "創造完美的室內空間，結合美學設計與高效空調系統。", img: "/Data-Record-6-scaled-e1736497744306.jpg", alt: "室內裝修工程" }
+    { name: "工程项目管理", desc: "超过四十年的专业经验，确保每个项目按时、按预算及最高标准完成。", img: "/P2130002-scaled-r2qah3twc4pdxr1klpcqiv90ma1zz44xd4cti3uin8.jpg", alt: "项目管理现场" },
+    { name: "维修及保养", desc: "提供全面的预防性维护计划，为客户系统提供可靠的保障。", img: "/Inspection-1-scaled-e1736498471313-1024x683.jpg", alt: "设备检查维修" },
+    { name: "室内装修及空调规划", desc: "创造完美的室内空间，结合美学设计与高效空调系统。", img: "/Data-Record-6-scaled-e1736497744306.jpg", alt: "室内装修工程" }
   ],
-  servicesCta: "想更進一步了解我們的服務？",
-  servicesLink: "服務內容",
+  servicesCta: "想更进一步了解我们的服务？",
+  servicesLink: "服务内容",
   servicesUrl: `${prefix}/our-services/`,
   sustainabilityTitle: "Sustainability",
-  sustainabilitySub: "為環境，為社會，多出一分力",
-  sustainabilityText: "ESG x 偉保"
+  sustainabilitySub: "为环境，为社会，多出一分力",
+  sustainabilityText: "ESG x 伟保"
 };
 ---
 
@@ -51,7 +51,7 @@ const t = {
     <div class="container">
       <div class="section-title">
         <span class="section-subtitle">Our Story</span>
-        <h2>四十年工程卓越的傳奇</h2>
+        <h2>四十年工程卓越的传奇</h2>
       </div>
       <div class="timeline">
         {t.sections.map((section, i) => (
@@ -136,7 +136,6 @@ const t = {
 </Base>
 
 <style>
-  /* Timeline */
   .timeline { max-width: 800px; margin: 0 auto; position: relative; }
   .timeline-item { display: flex; gap: 2rem; position: relative; padding-bottom: 2.5rem; }
   .timeline-item:last-child { padding-bottom: 0; }
@@ -149,8 +148,6 @@ const t = {
   .timeline-title { font-size: 1.25rem; font-weight: 500; color: #181d4e; margin: 0 0 .5rem; }
   .timeline-subtitle { font-weight: 400; color: #888; font-size: .85rem; margin-left: .25rem; }
   .timeline-content p { font-size: 1rem; line-height: 1.85; color: #444; margin: 0; }
-
-  /* Discover Cards (Dark) */
   .discover-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
   .discover-card {
     display: flex; align-items: center; gap: 1rem; padding: 1.75rem 1.5rem;
@@ -163,8 +160,6 @@ const t = {
   .discover-card__label { font-size: 1rem; font-weight: 500; flex: 1; }
   .discover-card__arrow { font-size: 1.1rem; opacity: .5; transition: opacity .3s, transform .3s; }
   .discover-card:hover .discover-card__arrow { opacity: 1; transform: translateX(4px); }
-
-  /* CTA Banner */
   .cta-banner {
     background: linear-gradient(135deg, #181d4e, #090a1a);
     padding: 4rem 0; text-align: center;
@@ -176,15 +171,9 @@ const t = {
     transition: background .3s, transform .2s;
   }
   .cta-btn:hover { background: #e02010; transform: translateY(-1px); }
-
-  /* Sustainability Section */
   .section--sustainability { text-align: center; }
   .sustainability-content { max-width: 700px; margin: 0 auto; }
-
-  /* Responsive */
-  @media (max-width: 1023px) {
-    .services-grid { grid-template-columns: repeat(2, 1fr) !important; }
-  }
+  @media (max-width: 1023px) { .services-grid { grid-template-columns: repeat(2, 1fr) !important; } }
   @media (max-width: 767px) {
     .services-grid { grid-template-columns: 1fr !important; }
     .discover-grid { grid-template-columns: 1fr !important; }

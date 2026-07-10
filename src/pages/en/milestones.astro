@@ -1,0 +1,56 @@
+---
+import Base from "../../layouts/Base.astro";
+const t = {
+  pageTitle: "Milestones",
+  heroTitle: "Milestones",
+  heroSub: "Four Decades of Engineering Excellence",
+  sections: [
+    { year: "2025", events: ["June — ESG Charter 3+", "April — VIEWCO Engineering (Shenzhen) Co., Ltd. established", "March — Happy Workplace 2025", "January — HK Children's Hospital HKBMB Air Cooled Chiller Installation"] },
+    { year: "2024", events: ["December — HSUHK Outstanding SME ESG & Business Performance Award", "October — CHO Appreciation Award", "October — 'Good Employer, Good Employee' 5 Years+", "July — ESG One-stop Mid-Year Recognition Award", "July — Metro Finance 'Top 100 Business Awards'", "July — JCI 'Leap Brand Award'", "June — Best SME Award", "May — A Caring Company", "April — ESG Charter (2024-2025)", "March — VIEWCO 40th Anniversary Dinner"] },
+    { year: "2023", events: ["December — ESG+ Charter Certificate Ceremony 2023", "November — 'Good Employer' 5-Year Excellence Certificate", "October — CHO Chief Happiness Officer", "April — Shanghai visit to 34th China Refrigeration Expo"] },
+    { year: "2020-2022", events: ["HKCSS Caring Company Scheme recognition", "Became member of HKPITEA", "HKIE Scheme A approved for graduate training"] },
+    { year: "2019", events: ["GBA Top 100 Enterprise Brand Award", "ACI OHSAS-18001 Certification", "Mei Foo Phase 7 Magnetic Bearing Chiller Replacement, ~118 employees"] },
+    { year: "2018", events: ["ACI ISO-14001 Certification", "Named 2018 Ethical Consumption Campaign"] },
+    { year: "1984-2017", events: ["2016 — Registered Electrical Contractor Certificate", "2014 — Arthur Wong joined, ~90 employees", "2013 — Launched IAQ services", "2012 — Started interior design & decoration", "2008-2010 — Sino Property Management (~50 sites) AC maintenance", "2004 — Mei Foo Phase 4 Cooling Tower Overhaul", "2001 — Hong Kong International School E&M contract", "2000 — Appointed contractor for Swire Properties", "1999 — HKQAA ISO-9001 Certification", "1995 — Staff training exchange at Daikin Japan", "1994 — Mei Foo AC system replacement", "1992 — Registered Electrical Contractor", "1991 — Permanent member of HKECA", "1989 — F&B group AC & ventilation works", "1988 — HKRCO Cold Storage System Replacement", "1984 — VIEWCO Engineering Co., Ltd. founded"] }
+  ]
+};
+---
+<Base title={t.pageTitle} description={t.heroSub}>
+  <section class="page-hero"><div class="container"><h1>{t.heroTitle}</h1><p>{t.heroSub}</p></div></section>
+  <section class="section"><div class="container"><div class="content-block">
+    {t.sections.map(s => (
+      <div class="accordion-item">
+        <h3 class="accordion-header" data-accordion-trigger>
+          <span class="accordion-arrow">▶</span> {s.year}
+        </h3>
+        <div class="accordion-body">
+          {s.events.map(e => <p>{e}</p>)}
+        </div>
+      </div>
+    ))}
+  </div></div></section>
+  <style>
+    .accordion-item { margin-bottom: .75rem; border: 1px solid #e0e0e0; border-radius: 6px; overflow: hidden; }
+    .accordion-header { cursor: pointer; padding: 1rem 1.25rem; margin: 0; font-size: 1.1rem; font-weight: 500; color: #181d4e; background: #fafafa; display: flex; align-items: center; gap: .5rem; user-select: none; transition: background .2s; }
+    .accordion-header:hover { background: #f0f0f0; }
+    .accordion-arrow { display: inline-block; transition: transform .25s; font-size: .75rem; width: 16px; text-align: center; flex-shrink: 0; }
+    .accordion-header.open .accordion-arrow { transform: rotate(90deg); }
+    .accordion-body { display: none; padding: 1rem 1.25rem 1.25rem 2.5rem; background: #fff; }
+    .accordion-body p { margin-bottom: .5rem; line-height: 1.8; color: #444; }
+    @media (max-width: 767px) { .accordion-body { padding-left: 1.5rem; } }
+  </style>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      document.querySelectorAll("[data-accordion-trigger]").forEach(header => {
+        header.addEventListener("click", () => {
+          const body = header.nextElementSibling;
+          const isOpen = body.style.display === "block";
+          body.style.display = isOpen ? "none" : "block";
+          header.classList.toggle("open", !isOpen);
+          const arrow = header.querySelector(".accordion-arrow");
+          if (arrow) arrow.textContent = isOpen ? "▶" : "▼";
+        });
+      });
+    });
+  </script>
+</Base>

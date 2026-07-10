@@ -1,0 +1,66 @@
+---
+import Base from "../../layouts/Base.astro";
+const t = {
+  pageTitle: "Culture, Vision, Mission & Core Values",
+  heroTitle: "Culture, Vision, Mission & Core Values",
+  heroSub: "VIEWCO Spirit, People-Oriented",
+  sections: [
+    { title: "Corporate Culture", content: ["1. Communicate directly and positively.", "2. Honest, clear, and sincere communication (mutual understanding).", "3. Proactively celebrate and recognize success.", "4. Appreciate yourself and others.", "5. Maintain an attitude of gratitude."] },
+    { title: "Vision", content: ["VIEWCO aims to become the pioneer and leader in the E&M engineering sector across the Greater Bay Area."] },
+    { title: "Mission", content: ["VIEWCO upholds the VIEWCO Spirit, People-Oriented philosophy, valuing employees, clients, and the community. We provide high-level service commitments while creating a reduced-carbon, environmentally-conscious, healthy, and comfortable community."] },
+    { title: "Core Values", content: null, subsections: [
+      { title: "Integrity", text: "We provide services meeting the highest standards of integrity and ethics, ensuring a transparent, ethical, and trustworthy business environment. We treat everyone with sincerity to earn trust." },
+      { title: "Safety", text: "Safety is our cornerstone for excellent results and sustainable development. We fully respect human life, place safety first, and actively promote a people-oriented safety culture, striving for zero accidents." },
+      { title: "Team Spirit", text: "We value teamwork and promote a supportive, inclusive, and appreciative work environment." },
+      { title: "Employee Care", text: "Our employees are our greatest asset. We listen to their voices and provide a caring, inclusive environment for continuous learning and growth." },
+      { title: "Innovation", text: "We continuously seek new technology, techniques, and expertise to meet market demands and ensure high-quality service for our clients." },
+      { title: "Pragmatic Efficiency", text: "We believe pragmatism and efficiency are key to sustainable growth. We understand client, market, and employee needs to optimize and respond efficiently." },
+      { title: "Sustainability", text: "We strive to create sustainable development in business and work environments, integrating innovation into all aspects of our corporate culture for the benefit of all stakeholders." }
+    ]}
+  ]
+};
+---
+<Base title={t.pageTitle} description={t.heroSub}>
+  <section class="page-hero"><div class="container"><h1>{t.heroTitle}</h1><p>{t.heroSub}</p></div></section>
+  <section class="section"><div class="container"><div class="content-block">
+    {t.sections.map(s => (
+      <div class="accordion-item">
+        <h3 class="accordion-header" data-accordion-trigger>
+          <span class="accordion-arrow">▶</span> {s.title}
+        </h3>
+        <div class="accordion-body">
+          {s.content && s.content.map(c => <p>{c}</p>)}
+          {s.subsections && s.subsections.map(sub => (
+            <div style="margin-bottom:1.25rem">
+              <h4 style="color:#181d4e;font-weight:500;margin-bottom:.35rem">{sub.title}</h4>
+              <p style="margin:0">{sub.text}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    ))}
+  </div></div></section>
+  <style>
+    .accordion-item { margin-bottom: .75rem; border: 1px solid #e0e0e0; border-radius: 6px; overflow: hidden; }
+    .accordion-header { cursor: pointer; padding: 1rem 1.25rem; margin: 0; font-size: 1.1rem; font-weight: 500; color: #181d4e; background: #fafafa; display: flex; align-items: center; gap: .5rem; user-select: none; transition: background .2s; }
+    .accordion-header:hover { background: #f0f0f0; }
+    .accordion-arrow { display: inline-block; transition: transform .25s; font-size: .75rem; width: 16px; text-align: center; flex-shrink: 0; }
+    .accordion-header.open .accordion-arrow { transform: rotate(90deg); }
+    .accordion-body { display: none; padding: 1rem 1.25rem 1.25rem 2.5rem; background: #fff; }
+    .accordion-body p { margin-bottom: .5rem; line-height: 1.8; color: #444; }
+    @media (max-width: 767px) { .accordion-body { padding-left: 1.5rem; } }
+  </style>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      document.querySelectorAll("[data-accordion-trigger]").forEach(h => {
+        h.addEventListener("click", () => {
+          const b = h.nextElementSibling, o = b.style.display === "block";
+          b.style.display = o ? "none" : "block";
+          h.classList.toggle("open", !o);
+          const a = h.querySelector(".accordion-arrow");
+          if (a) a.textContent = o ? "▶" : "▼";
+        });
+      });
+    });
+  </script>
+</Base>

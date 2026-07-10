@@ -1,0 +1,52 @@
+---
+import Base from "../layouts/Base.astro";
+const t = {
+  pageTitle: "管理團隊",
+  heroTitle: "管理團隊",
+  heroSub: "我們擁有專業的管理團隊",
+  members: [
+    { role: "首席執行官", name: "Arthur Wong 王啟聰" },
+    { role: "項目高級經理", name: "Barry Chan 陳志雄" },
+    { role: "維修部高級經理", name: "Andy Chu 朱天豪" }
+  ]
+};
+---
+<Base title={t.pageTitle} description={t.heroSub}>
+  <section class="page-hero"><div class="container"><h1>{t.heroTitle}</h1><p>{t.heroSub}</p></div></section>
+  <section class="section"><div class="container"><div class="content-block">
+    {t.members.map(m => (
+      <div class="accordion-item">
+        <h3 class="accordion-header" data-accordion-trigger>
+          <span class="accordion-arrow">▶</span> {m.role}
+        </h3>
+        <div class="accordion-body">
+          <p style="font-size:1.2rem;font-weight:500">{m.name}</p>
+        </div>
+      </div>
+    ))}
+  </div></div></section>
+  <style>
+    .accordion-item { margin-bottom: .75rem; border: 1px solid #e0e0e0; border-radius: 6px; overflow: hidden; }
+    .accordion-header { cursor: pointer; padding: 1rem 1.25rem; margin: 0; font-size: 1.1rem; font-weight: 500; color: #181d4e; background: #fafafa; display: flex; align-items: center; gap: .5rem; user-select: none; transition: background .2s; }
+    .accordion-header:hover { background: #f0f0f0; }
+    .accordion-arrow { display: inline-block; transition: transform .25s; font-size: .75rem; width: 16px; text-align: center; flex-shrink: 0; }
+    .accordion-header.open .accordion-arrow { transform: rotate(90deg); }
+    .accordion-body { display: none; padding: 1rem 1.25rem 1.25rem 2.5rem; background: #fff; }
+    .accordion-body p { margin-bottom: .5rem; line-height: 1.8; color: #444; }
+    @media (max-width: 767px) { .accordion-body { padding-left: 1.5rem; } }
+  </style>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      document.querySelectorAll("[data-accordion-trigger]").forEach(header => {
+        header.addEventListener("click", () => {
+          const body = header.nextElementSibling;
+          const isOpen = body.style.display === "block";
+          body.style.display = isOpen ? "none" : "block";
+          header.classList.toggle("open", !isOpen);
+          const arrow = header.querySelector(".accordion-arrow");
+          if (arrow) arrow.textContent = isOpen ? "▶" : "▼";
+        });
+      });
+    });
+  </script>
+</Base>

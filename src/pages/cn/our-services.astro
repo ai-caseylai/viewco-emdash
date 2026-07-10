@@ -1,40 +1,39 @@
 ---
-import Base from "../layouts/Base.astro";
+import Base from "../../layouts/Base.astro";
 const t = {
-  pageTitle: "服務內容",
+  pageTitle: "服务内容",
   heroTitle: "Our Services",
-  heroSub: "提供全面專業的機電工程服務",
-  intro: "偉保是一間提供香港機電工程服務承建商，包括空調及通風及抽氣系統的安裝，改建維護及保養工程。",
+  heroSub: "提供全面专业的机电工程服务",
+  intro: "伟保是一间提供香港机电工程服务承建商，包括空调及通风及抽气系统的安装，改建维护及保养工程。",
   services: [
     {
-      title: "項目管理",
-      content: "偉保善長於提供專業設計和建設包括機械通風及空調，電氣，項目管理和業務連續性建構等項目，我們多年來所擁有的豐富經驗加上寶貴的工程技術溶入於設計創建方面尤其著名，而且當中更會確保整個設計及建築的可持續性及可維護性。通過所有設計及施工階段可以充分反映我們所應用到的專業知識。我們在提供創新的空調及通風系統，不僅提高建築物的運營效率和能源效益，同時也提升了客戶的生活和工作條件及所享受到的舒適經驗。",
+      title: "项目管理",
+      content: "伟保善长于提供专业设计和建设包括机械通风及空调，电气，项目管理和业务连续性建构等项目，我们多年来所拥有的丰富经验加上宝贵的工程技朮溶入于设计创建方面尤其著名，而且当中更会确保整个设计及建筑的可持续性及可维护性。通过所有设计及施工阶段可以充分反映我们所应用到的专业知识。我们在提供创新的空调及通风系统，不仅提高建筑物的运营效率和能源效益，同时也提升了客户的生活和工作条件及所享受到的舒适经验。",
       images: ["/P2130002-scaled-r2qah3twc4pdxr1klpcqiv90ma1zz44xd4cti3uin8.jpg"],
-      alts: ["項目管理現場"]
+      alts: ["项目管理现场"]
     },
     {
-      title: "維修及保養",
-      content: "偉保工程有限公司專門提供於商業樓宇，辦公室，餐廳和住宅專業空調的定期保養，維修，銷售和安裝。",
+      title: "维修及保养",
+      content: "伟保工程有限公司专门提供于商业楼宇，办公室，餐厅和住宅专业空调的定期保养，维修，销售和安装。",
       images: ["/Machine-1600x1200-1.jpg", "/Inspection-1-scaled-e1736498471313-1024x683.jpg"],
-      alts: ["機組設備", "設備檢查維修"]
+      alts: ["机组设备", "设备检查维修"]
     },
     {
-      title: "室內裝修",
-      content: "我們善長於項目管理，提供由最初設計概念至項目完成的一站式服務，設計範疇包括住宅、餐廳及辦公室等。我們的工作是聆聽客戶之需要，提供適時及合乎經濟效益的方案。與客戶敲定設計方向及方案後，我們的設計及承建團隊會共同合作，於合理時間及成本控制內完成整個項目，而在過程的每一步，我們極重視與客戶的緊密溝通。",
+      title: "室内装修",
+      content: "我们善长于项目管理，提供由最初设计概念至项目完成的一站式服务，设计范畴包括住宅、餐厅及办公室等。我们的工作是聆听客户之需要，提供适时及合乎经济效益的方案。与客户敲定设计方向及方案后，我们的设计及承建团队会共同合作，于合理时间及成本控制内完成整个项目，而在过程的每一步，我们极重视与客户的紧密沟通。",
       images: ["/panorama-3323163_1920.jpg", "/IMG_1588-1290x725.jpg", "/IMG_1283-1290x725.jpg"],
-      alts: ["室內裝修全景", "裝修工程細節", "完工項目實景"]
+      alts: ["室内装修全景", "装修工程细节", "完工项目实景"]
     }
   ],
-  summaryTitle: "服務項目摘要",
+  summaryTitle: "服务项目摘要",
   summaryList: [
-    "室內裝修項目", "水泵大修", "冷水機及冷卻塔大修", "風櫃更換工程",
-    "年度檢查證書 (消防署)", "冷氣清洗服務", "電力安裝及 WR2 檢查",
-    "冷水機安裝及更換", "通風系統安裝及更換", "VRV 安裝及更換", "凍倉安裝工程"
+    "室内装修项目", "水泵大修", "冷水机及冷却塔大修", "风柜更换工程",
+    "年度检查证书 (消防署)", "冷气清洗服务", "电力安装及 WR2 检查",
+    "冷水机安装及更换", "通风系统安装及更换", "VRV 安装及更换", "冻仓安装工程"
   ]
 };
 ---
 <Base title={t.pageTitle} description={t.heroSub}>
-  <!-- Hero -->
   <section class="page-hero">
     <div class="container">
       <span class="section-subtitle">Services</span>
@@ -43,7 +42,6 @@ const t = {
     </div>
   </section>
 
-  <!-- Intro -->
   <section class="section" style="padding-bottom:0">
     <div class="container">
       <div class="section-title">
@@ -53,7 +51,6 @@ const t = {
     </div>
   </section>
 
-  <!-- Service Cards with Images -->
   <section class="services-section">
     <div class="container">
       <div class="services-grid">
@@ -74,7 +71,6 @@ const t = {
     </div>
   </section>
 
-  <!-- Service Summary List -->
   <section class="section section--dark">
     <div class="container">
       <div class="section-title" style="margin-bottom:2rem">

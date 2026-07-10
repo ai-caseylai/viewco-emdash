@@ -1,40 +1,41 @@
 ---
-import Base from "../layouts/Base.astro";
+import Base from "../../layouts/Base.astro";
 const t = {
-  pageTitle: "服務內容",
+  pageTitle: "Our Services",
   heroTitle: "Our Services",
-  heroSub: "提供全面專業的機電工程服務",
-  intro: "偉保是一間提供香港機電工程服務承建商，包括空調及通風及抽氣系統的安裝，改建維護及保養工程。",
+  heroSub: "Providing Comprehensive Professional E&M Engineering Services",
+  intro: "VIEWCO is a Hong Kong E&M engineering service contractor, providing installation, alteration, maintenance and repair of air-conditioning, ventilation and exhaust systems.",
   services: [
     {
-      title: "項目管理",
-      content: "偉保善長於提供專業設計和建設包括機械通風及空調，電氣，項目管理和業務連續性建構等項目，我們多年來所擁有的豐富經驗加上寶貴的工程技術溶入於設計創建方面尤其著名，而且當中更會確保整個設計及建築的可持續性及可維護性。通過所有設計及施工階段可以充分反映我們所應用到的專業知識。我們在提供創新的空調及通風系統，不僅提高建築物的運營效率和能源效益，同時也提升了客戶的生活和工作條件及所享受到的舒適經驗。",
+      title: "Project Management",
+      content: "VIEWCO excels in providing professional design and build services including mechanical ventilation and air-conditioning, electrical, project management and business continuity projects. Our extensive experience combined with valuable engineering expertise is particularly renowned in design creation, ensuring the sustainability and maintainability of the entire design and construction. Our professional knowledge is fully reflected through all design and construction stages. We provide innovative air-conditioning and ventilation systems that not only improve building operational efficiency and energy performance, but also enhance the living and working conditions and comfort experience of our clients.",
       images: ["/P2130002-scaled-r2qah3twc4pdxr1klpcqiv90ma1zz44xd4cti3uin8.jpg"],
-      alts: ["項目管理現場"]
+      alts: ["Project Management Onsite"]
     },
     {
-      title: "維修及保養",
-      content: "偉保工程有限公司專門提供於商業樓宇，辦公室，餐廳和住宅專業空調的定期保養，維修，銷售和安裝。",
+      title: "Maintenance & Repair",
+      content: "VIEWCO Engineering Co., Ltd. specializes in providing professional air-conditioning maintenance, repair, sales and installation services for commercial buildings, offices, restaurants and residential properties.",
       images: ["/Machine-1600x1200-1.jpg", "/Inspection-1-scaled-e1736498471313-1024x683.jpg"],
-      alts: ["機組設備", "設備檢查維修"]
+      alts: ["Equipment Machinery", "Equipment Inspection"]
     },
     {
-      title: "室內裝修",
-      content: "我們善長於項目管理，提供由最初設計概念至項目完成的一站式服務，設計範疇包括住宅、餐廳及辦公室等。我們的工作是聆聽客戶之需要，提供適時及合乎經濟效益的方案。與客戶敲定設計方向及方案後，我們的設計及承建團隊會共同合作，於合理時間及成本控制內完成整個項目，而在過程的每一步，我們極重視與客戶的緊密溝通。",
+      title: "Interior Fit-Out",
+      content: "We excel in project management, providing one-stop services from initial design concept to project completion, covering residential, restaurant and office spaces. We listen to our clients' needs and provide timely, cost-effective solutions. After finalizing the design direction and plan with clients, our design and construction teams work together to complete the entire project within reasonable time and cost control, emphasizing close communication with clients at every step.",
       images: ["/panorama-3323163_1920.jpg", "/IMG_1588-1290x725.jpg", "/IMG_1283-1290x725.jpg"],
-      alts: ["室內裝修全景", "裝修工程細節", "完工項目實景"]
+      alts: ["Interior Fit-Out Panorama", "Renovation Detail", "Completed Project"]
     }
   ],
-  summaryTitle: "服務項目摘要",
+  summaryTitle: "Service Summary",
   summaryList: [
-    "室內裝修項目", "水泵大修", "冷水機及冷卻塔大修", "風櫃更換工程",
-    "年度檢查證書 (消防署)", "冷氣清洗服務", "電力安裝及 WR2 檢查",
-    "冷水機安裝及更換", "通風系統安裝及更換", "VRV 安裝及更換", "凍倉安裝工程"
+    "Interior Fit-Out Projects", "Water Pump Overhaul", "Chiller & Cooling Tower Overhaul",
+    "AHU Replacement Works", "Annual Inspection Certificate (FSD)", "Air-Conditioning Cleaning Services",
+    "Electrical Installation & WR2 Inspection", "Chiller Installation & Replacement",
+    "Ventilation System Installation & Replacement", "VRV Installation & Replacement",
+    "Cold Storage Installation Works"
   ]
 };
 ---
 <Base title={t.pageTitle} description={t.heroSub}>
-  <!-- Hero -->
   <section class="page-hero">
     <div class="container">
       <span class="section-subtitle">Services</span>
@@ -43,7 +44,6 @@ const t = {
     </div>
   </section>
 
-  <!-- Intro -->
   <section class="section" style="padding-bottom:0">
     <div class="container">
       <div class="section-title">
@@ -53,7 +53,6 @@ const t = {
     </div>
   </section>
 
-  <!-- Service Cards with Images -->
   <section class="services-section">
     <div class="container">
       <div class="services-grid">
@@ -74,7 +73,6 @@ const t = {
     </div>
   </section>
 
-  <!-- Service Summary List -->
   <section class="section section--dark">
     <div class="container">
       <div class="section-title" style="margin-bottom:2rem">

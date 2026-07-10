@@ -40,6 +40,7 @@ const homeUrl = prefix + "/";
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
   <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png" />
   <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180x180.png" />
+  <style>:root{--color-extra-bg:#090a1a;--color-extra-text:#ffffffbf;--color-extra-dark:#fff;--color-text:#444;--color-text-light:#898a8e;--color-text-link:#fa4729;--color-text-hover:#e02010;--color-bg:#f8f8f8;--color-accent:#fa4729;--font-heading:system-ui,-apple-system,sans-serif;--font-body:system-ui,-apple-system,sans-serif;--grid-gap:1.5rem}</style>
   <link rel="stylesheet" href="/viewco.css" />
 </head>
 <body>
@@ -136,7 +137,7 @@ const homeUrl = prefix + "/";
 <script>
 // Accordion: click client name to toggle property list
 document.addEventListener("DOMContentLoaded", () => {
-  if (!location.pathname.includes("our-clients") && !location.pathname.includes("about-us")) return;
+  if (!location.pathname.includes("our-clients")) return;
   const container = document.querySelector(".content-block");
   if (!container) return;
   const h3s = container.querySelectorAll("h3");

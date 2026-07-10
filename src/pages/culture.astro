@@ -1,0 +1,66 @@
+---
+import Base from "../layouts/Base.astro";
+const t = {
+  pageTitle: "文化、願景、使命與核心價值",
+  heroTitle: "文化、願景、使命與核心價值",
+  heroSub: "偉保精神，以人為本",
+  sections: [
+    { title: "企業文化", content: ["1. 正面與第一人溝通處理。", "2. 坦白，清晰，真誠溝通（互相理解）。", "3. 積極，慶祝，讚揚成功。", "4. 欣賞自己，欣賞別人。", "5. 珍惜感恩的態度。"] },
+    { title: "願景", content: ["偉保成為大灣區機電工程界的領導先驅。"] },
+    { title: "使命", content: ["偉保秉持「偉保精神，以人為本」，重視員工、客戶、以至社區，並創造最大的價值。我們對客戶提供一個高水平的服務承諾指標。同時，我們承諾創造一個減少碳排放，重視環保，健康、舒適的社區環境。"] },
+    { title: "核心價值", content: null, subsections: [
+      { title: "誠信", text: "我們致力為客戶提供符合高誠信和道德標準的服務，並確保透明，道德和信任的營商環境。同時，我們凡事以誠待人，以爭取客戶、供應商及合作夥伴的信任。" },
+      { title: "安全", text: "安全是公司創造優良業績，實現全面、協調、可持續發展的基石。公司充分尊重人的生命價值，把保障社會公眾和企業員工的生命安全放在首位。同時，積極倡導以人為本的安全文化，努力追求零事故的目標。" },
+      { title: "團隊精神", text: "我們重視團隊合作，提倡互相扶持，共融，欣賞的工作環境。" },
+      { title: "關懷員工", text: "我們視員工為最大的資產，我們聆聽員工心聲，並滿足他們的需求。提供一個關懷、共融和共同持續學習、進步的工作環境給予員工。" },
+      { title: "創新", text: "我們致力尋求新科技、技術、專業知識，以符合市場的需要和確保給予客戶有一個高質量的服務。" },
+      { title: "務實高效", text: "公司深信務實高效是公司持續健康發展的基石。公司的高效率表現，通過了解客戶、市場、員工需要，從而專注優化公司內部，並作出高效率回應及工作。從而持續地建立信任及獲得支持。" },
+      { title: "可持續發展", text: "我們努力創造可以持續發展的方向，創造營商及工作環境。我們力求將創新融入企業文化各個層面，開發多元化業務發展，與合作夥伴的協同效應，以及提供一個可持續學習的工作環境，達致與社區、客戶、合作夥伴及員工一個共融環境。" }
+    ]}
+  ]
+};
+---
+<Base title={t.pageTitle} description={t.heroSub}>
+  <section class="page-hero"><div class="container"><h1>{t.heroTitle}</h1><p>{t.heroSub}</p></div></section>
+  <section class="section"><div class="container"><div class="content-block">
+    {t.sections.map(s => (
+      <div class="accordion-item">
+        <h3 class="accordion-header" data-accordion-trigger>
+          <span class="accordion-arrow">▶</span> {s.title}
+        </h3>
+        <div class="accordion-body">
+          {s.content && s.content.map(c => <p>{c}</p>)}
+          {s.subsections && s.subsections.map(sub => (
+            <div style="margin-bottom:1.25rem">
+              <h4 style="color:#181d4e;font-weight:500;margin-bottom:.35rem">{sub.title}</h4>
+              <p style="margin:0">{sub.text}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    ))}
+  </div></div></section>
+  <style>
+    .accordion-item { margin-bottom: .75rem; border: 1px solid #e0e0e0; border-radius: 6px; overflow: hidden; }
+    .accordion-header { cursor: pointer; padding: 1rem 1.25rem; margin: 0; font-size: 1.1rem; font-weight: 500; color: #181d4e; background: #fafafa; display: flex; align-items: center; gap: .5rem; user-select: none; transition: background .2s; }
+    .accordion-header:hover { background: #f0f0f0; }
+    .accordion-arrow { display: inline-block; transition: transform .25s; font-size: .75rem; width: 16px; text-align: center; flex-shrink: 0; }
+    .accordion-header.open .accordion-arrow { transform: rotate(90deg); }
+    .accordion-body { display: none; padding: 1rem 1.25rem 1.25rem 2.5rem; background: #fff; }
+    .accordion-body p { margin-bottom: .5rem; line-height: 1.8; color: #444; }
+    @media (max-width: 767px) { .accordion-body { padding-left: 1.5rem; } }
+  </style>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      document.querySelectorAll("[data-accordion-trigger]").forEach(h => {
+        h.addEventListener("click", () => {
+          const b = h.nextElementSibling, o = b.style.display === "block";
+          b.style.display = o ? "none" : "block";
+          h.classList.toggle("open", !o);
+          const a = h.querySelector(".accordion-arrow");
+          if (a) a.textContent = o ? "▶" : "▼";
+        });
+      });
+    });
+  </script>
+</Base>
